@@ -8,7 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FrontendController extends AbstractController
 {
-//    #[Route('/frontend', name: 'frontend')]
+    #[Route('/', name: 'frontend')]
+    #[Route('/{route}', name: 'vue', requirements: ['route' => '^.+'])]
     public function index(): Response
     {
         return $this->render('frontend/index.html.twig', [
